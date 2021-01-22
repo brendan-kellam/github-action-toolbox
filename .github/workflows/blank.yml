@@ -32,11 +32,11 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.pythonLocation }}
-          key: ${{ env.pythonLocation }}-${{ PYTHON_VERSION }}
+          key: ${{ env.pythonLocation }}-${{ env.PYTHON_VERSION }}
 
 
       - name: Download python
         uses: actions/setup-python@v2
         if: steps.cached-python-version.outputs.cache-hit != 'true'
         with:
-          python-version: ${{ PYTHON_VERSION }}
+          python-version: ${{ env.PYTHON_VERSION }}
